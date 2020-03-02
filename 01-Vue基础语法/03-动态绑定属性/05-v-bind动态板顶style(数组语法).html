@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div id="app">
+  <h2 :style="[baseStyle]">{{message}}</h2>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!',
+      baseStyle:{color:'red'}
+    }
+  })
+</script>
+</body>
+</html>

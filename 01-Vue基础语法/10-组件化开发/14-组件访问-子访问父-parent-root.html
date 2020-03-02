@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+</div>
+<template id="cpn">
+    <div>
+      <h2>儿子组件</h2>
+      <cpn1></cpn1>
+    </div>
+</template>
+<template id="cpn1">
+    <div>
+      <h2>孙子组件</h2>
+      <button @click="btnC">按钮</button>
+    </div>
+</template>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!'
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        data(){
+          return {
+            name:'zizujian'
+          }
+        },
+        components:{
+          cpn1:{
+            template:'#cpn1',
+            methods:{
+              btnC(){
+                //1.访问父组件 $.parent 不常使用
+                console.log(this.$parent);
+                console.log(this.$parent.name);
+                //2.访问根组件 $root 访问vue实例
+                console.log(this.$root);
+                console.log(this.$root.message);
+              }
+            }
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

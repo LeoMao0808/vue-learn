@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--v-on 监听事件  语法糖 :@-->
+  <h2>{{count}}</h2>
+  <button @click="incr">+</button>
+  <button @click="decr">-</button>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      count:0
+    },
+    methods:{
+      incr(){
+        this.count++;
+      },
+      decr(){
+        this.count--;
+      }
+    }
+  })
+</script>
+</body>
+</html>

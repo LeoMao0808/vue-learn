@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--问题描述:input输入内容点击切换 切换后内容还在-->
+<!--问题解答:vue在进行dom渲染时出于性能考虑,会尽可能复用已存在的元素,而不是重新创建元素-->
+<!--解决方案: 给两个相同签添加key属性,并保证key的值不同-->
+<div id="app">
+  <span v-if="isUser">
+    <label for="username">用户账号</label>
+    <input type="text" id="username" placeholder="用户账号">
+  </span>
+  <span v-else>
+    <label for="email">用户邮箱</label>
+    <input type="text" id="email" placeholder="用户邮箱">
+  </span>
+  <button @click="isUser = !isUser">切换</button>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      isUser:true
+    }
+  })
+</script>
+</body>
+</html>

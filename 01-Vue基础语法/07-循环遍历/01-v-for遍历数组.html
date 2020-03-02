@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--1.遍历的时候不使用下标值-->
+  <ul>
+    <li v-for="item in musics">{{item}}</li>
+  </ul>
+  <!--2.遍历的时候获取下标值-->
+  <ul>
+    <li v-for="(item,index) in musics">{{index+1}}-{{item}}</li>
+  </ul>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!',
+      musics:['111','222','333']
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  const obj = {
+    name: 'sds1',
+    age: 23,
+    run:function () {
+      console.log('run')
+    }
+  }
+
+  //1.属性的增强写法
+  const name = 'xiaochuang'
+  const age = 12;
+
+  //es5写法
+  const  obj1 = {
+    name:name,
+    age:age,
+    test: function () {
+      console.log('es5');
+    }
+  }
+  obj1.test();
+
+  //es6
+  const  obj2 = {
+    name,
+    age,
+    test(){
+      console.log('es6');
+    }
+  }
+  obj2.test();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{color: red}
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(m,index) in musics" @click="change(index)" :class="{active:activeIndex == index}">{{index}}-{{m}}</li>
+  </ul>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      activeIndex:0,
+      musics:['小半','走马','缘分是一道桥','我曾'],
+    },
+    methods:{
+      change:function (index) {
+        this.activeIndex = index;
+      }
+    }
+  })
+</script>
+</body>
+</html>

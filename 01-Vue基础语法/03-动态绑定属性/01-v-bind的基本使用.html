@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--错误的用法:这里不能用{{}}语法-->
+ <!-- <img src="{{imgUrl}}">-->
+  <img v-bind:src="imgUrl">
+  <a v-bind:href="aHref">百度一下</a>
+  <!--语法糖:-->
+  <img :src="imgUrl">
+  <a :href="aHref">百度一下</a>
+
+</div>
+<!--v-bind语法糖是:-->
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!',
+      imgUrl:'https://cn.vuejs.org/images/logo.png',
+      aHref:'http://www.baidu.com'
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--1.修饰符: lazy-->
+  <!--v-model双向绑定数据,一旦数据发生变化data中变量的值自动发生变化-->
+  <!--作用:lazy修饰符让数据在失去焦点或者回车是才会更新data中的变量-->
+  <input type="text" v-model.lazy="message"/>
+  <h2>{{message}}</h2>
+  <!--2.修饰符:number-->
+  <!--v-model绑定不论我们输入的是数字还是字母do默认为字符串处理-->
+  <!--作用:number修饰符可以让输入框中值的类型转成数字类型-->
+  <input type="text" v-model.number="age"/>
+  <h2>{{typeof age}}</h2>
+  <!--3.修饰符:trim-->
+  <!--trim修饰符过滤内容左右(首尾)两边的空格-->
+  <input type="text" v-model.trim="name"/>
+  <h2>{{name}}</h2>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!',
+      age: '',
+      name:''
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--1.直接拼接 缺点:语法过于复杂(不采用)-->
+  <!--<h2>{{firstName}} {{lastName}}</h2>-->
+  <!--2.methods方法-->
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <!--3.computed计算属性-->
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <!--methods方式和computed方式同样重复调用4次,
+      对比发现methods每次都重新执行而computed只执行一次-->
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      firstName:'kobe',
+      lastName:'Bryant'
+    },
+    methods:{
+      getFullName: function () {
+        console.log('getFullName');
+        return this.firstName + ' ' + this.lastName
+      }
+    },
+    computed:{
+      fullName: function () {
+        console.log('fullName');
+        return this.firstName + ' ' + this.lastName
+      }
+    }
+  })
+</script>
+</body>
+</html>

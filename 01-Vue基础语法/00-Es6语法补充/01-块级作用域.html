@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+<script>
+  //es5之前因为if和for都没有块级作用域的概念,所以在很多时候.
+  //我们都是借助function的作用于来解决应用外面变量的问题
+  //es6加入了let,let它是有if和for的块级作用域
+  //es5中的var是没有块级作用域的
+  //1.变量的作用域: 变量在什么范围是可用的
+//  {
+//    var name = 'why';
+//    console.log(name);
+//  }
+//  console.log(name);
+  //2.没有块级作用域硬气的问题
+    //2.1 if的块级问题
+//  var func;
+//  if(true){
+//    var name = 'who'
+//
+//    func = function () {
+//      console.log(name);
+//    }
+//  }
+//  name = 'kobe';
+//  func();
+  //2.2 for的块级问题
+//  var btns =document.getElementsByTagName('button');
+//  for(var i = 0;i < btns.length ; i++){
+//    btns[i].addEventListener('click',function () {
+//      console.log('第' + i + '个按钮被点击');
+//    })
+//  }
+  //采用闭包的形式来解决
+  var btns =document.getElementsByTagName('button');
+  for(var i = 0;i < btns.length ; i++){
+    (function (num) {
+      btns[i].addEventListener('click',function () {
+        console.log('第' + num + '个按钮被点击');
+      })
+    })(i)
+  }
+
+</script>
+
+</body>
+</html>

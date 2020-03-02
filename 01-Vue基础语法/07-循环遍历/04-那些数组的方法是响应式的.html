@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="item in exams" :key="item">{{item}}</li>
+  </ul>
+  <button @click="btnC">按钮</button>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      exams:['A','B','C','D']
+    },
+    methods:{
+      btnC(){
+        //响应式
+        //1.push() 尾部插入元素 ...item 可变参数可以传多个参数 以数组方式存储
+//        this.exams.push('aa');
+//        this.exams.push('aa','bb','cc');
+
+        //2.pop() 删除最后一个元素 响应式
+//        this.exams.pop();
+
+        //3.shift() 删除数组中第一个元素 响应式
+//        this.exams.shift();
+
+        //4.unshift() 添加首元素 可以多个 响应式
+//        this.exams.unshift('12');
+//        this.exams.unshift('12','122');
+
+        //5.splice() 作用: 删除元素/插入元素/替换元素 响应式
+        //第一个参数 start 起始位置
+        //删除元素:第二个参数传删除元素的个数
+//        this.exams.splice(1,1);
+        //替换元素:第二参数表示替换几个元素
+//        this.exams.splice(1,2,'2','3','23');
+        //插入元素:第二个参数,需要传入0,后面跟插入的元素
+//        this.exams.splice(1,0,'1','2','3')
+
+        //6 sort() 排序 响应式
+//        this.exams.sort();
+        //7.reverse() 数组元素反转 响应式
+//        this.exams.reverse();
+
+        //8.通过下标索引修改数组元素 不是响应式
+//        this.exams[0] = 'dsdsd'
+        //set(修改的数组,索引,修改的值) 响应式
+        Vue.set(this.exams,0,'asds');
+      }
+    }
+  })
+</script>
+</body>
+</html>

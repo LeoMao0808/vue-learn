@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--
+    v-if 当条件为false 元素不会存在dom中
+  -->
+  <h2 v-if="isShow" id="aa">{{message}}</h2>
+  <!--
+    v-show 当条件为false 元素会加上行级样式 display:none;
+  -->
+  <h2 v-show="isShow" id="bb">{{message}}</h2>
+  <!--如何选择 1.切换频率高  v-show 2.频率不高 v-if 一般是v-if -->
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!',
+      isShow:true
+    }
+  })
+</script>
+</body>
+</html>

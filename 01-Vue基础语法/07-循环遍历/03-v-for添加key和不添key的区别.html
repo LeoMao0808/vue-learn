@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--组件key属性  key的作用主要是为了高效的更新虚拟dom-->
+
+<!-- 问题描述 : exams数组在浏览器遍历渲染后,在数组第二个位置插入一个元素F
+              vue更新的过程是这样的  先把C更新为F D更新为C 然后插入D (vue还有虚拟dom  首先在虚拟都没中这样更新一遍 然后到浏览器也是这样更新一遍 效率不高)
+-->
+<!--添加:key作为每个节点的标识   vue在更新的时候能正确的识别该节点的位置  并找到正确的位置插入元素  -->
+<div id="app">
+  <ul>
+    <li v-for="item in exams" :key="item">{{item}}</li>
+  </ul>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      exams:['A','B','C','D']
+    }
+  })
+</script>
+</body>
+</html>

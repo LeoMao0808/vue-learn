@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  //注意1:const修饰标识符赋值后,不能再次赋值
+  const name = 'test';
+//  name = '是多少大';
+  //注意2:const定义标识符必须进行赋值
+//  const name1 ;
+  //注意3:常量的含义是指向的对象不能修改,但是可以改变对象内部的属性
+
+  const obj ={
+    name:'十多块',
+    age:'12'
+  }
+  obj.name = '是多少大';
+  obj.age = '123';
+</script>
+</body>
+</html>

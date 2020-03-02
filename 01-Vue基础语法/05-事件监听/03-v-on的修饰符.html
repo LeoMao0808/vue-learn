@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--事件冒泡-->
+<div id="app">
+  <div @click="divC">222
+    <!--.stop 调用event.stopPropagation() 防止事件冒泡-->
+    <button @click.stop="btnC">btn</button>
+  </div>
+  <!--peevent的使用 调用event.preventDeffault 阻止默认事件的提交-->
+  <form action="baidu">
+    <input type="submit" value="提交" @click.prevent="submit"/>
+  </form>
+  <!--3.监听某个按键的点击 .enter 只监听enter按键-->
+  <input type="text" @keyup.enter="keyC"/>
+  <!--4.once修饰符 .once 表示改点击事件只触发一次-->
+  <input type="button" value="按钮1" @click.once="btn1C"/>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!'
+    },
+    methods:{
+      btnC(){
+        console.log('btnC');
+      },
+      btn1C(){
+        console.log('btn1C');
+      },
+      divC(){
+        console.log('divC');
+      },
+      submit(){
+        console.log('submit');
+      },
+      keyC(){
+        console.log('keyC');
+      }
+    }
+  })
+</script>
+</body>
+</html>

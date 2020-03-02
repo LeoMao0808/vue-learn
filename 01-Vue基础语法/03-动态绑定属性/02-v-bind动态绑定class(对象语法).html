@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{color: red}
+  </style>
+</head>
+<body>
+<div id="app">
+  <!--{} 对象  一般对象的内容为{key1:val1,key2:val2,...}-->
+  <h2 v-bind:class="{active:isActice,line:isLine}">{{message}}</h2>
+  <ul>
+  <li v-bind:class="getClasses()" @click="change">{{message}}</li>
+  </ul>
+  <button v-on:click="change">change</button>
+</div>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el:'#app',
+    data:{
+      message:'Hello,Vue!',
+      isActice:false,
+      isLine:false
+    },
+    methods:{
+      change:function () {
+        this.isActice = !this.isActice;
+      },
+      getClasses:function () {
+        return {active:this.isActice,line:this.isLine}
+      }
+    }
+  })
+</script>
+</body>
+</html>
